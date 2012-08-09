@@ -784,6 +784,13 @@ endfunction " }}}
 "
 "   The position is both the correct line number and the column number.
 function! Tex_GotoErrorLocation(filename)
+	" HACK ALERT: Avoid opening the .aux file and piss off the author
+	let mainFileName_root = Tex_GetMainFileName(':p:t:r')
+	let auxFileName = escape(mainFileName_root.'.aux', '.')
+	if match(getline('.'), auxFileName.'||.*') != -1
+		cclose
+		return
+	endif
 
 	" first use vim's functionality to take us to the location of the error
 	" accurate to the line (not column). This lets us go to the correct file
