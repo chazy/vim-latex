@@ -207,7 +207,7 @@ function! Tex_RunLaTeX()
 
 	let s:target = initTarget
 	let s:origwinnum = winnr()
-	call Tex_SetupErrorWindow()
+	"call Tex_SetupErrorWindow()
 
 	exe 'cd '.s:origdir
 	call Tex_Debug("-Tex_RunLaTeX", "comp")
@@ -663,7 +663,7 @@ function! Tex_SetupErrorWindow()
 		" resize the window to just fit in with the number of lines.
 		exec ( line('$') < 4 ? line('$') : 4 ).' wincmd _'
         if Tex_GetVarValue('Tex_GotoError') == 1
-	        call Tex_GotoErrorLocation(mfnlog)
+	        "call Tex_GotoErrorLocation(mfnlog)
         else
 			exec s:origwinnum.' wincmd w'
         endif

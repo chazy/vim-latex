@@ -315,7 +315,7 @@ endfunction " }}}
 function! s:Tex_SetupCWindow(...)
 	call Tex_Debug('+Tex_SetupCWindow', 'view')
 	cclose
-	exe 'copen '. g:Tex_ViewerCwindowHeight
+	"exe 'copen '. g:Tex_ViewerCwindowHeight
 	" If called with an argument, it means we want to re-use some search
 	" history from last time. Therefore, just paste it here and proceed.
 	if a:0 == 1
